@@ -2,3 +2,4 @@
 alias clip='xclip -selection c'
 alias tmpdir='mktemp -d | clip'
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+alias curconfig='config ls-tree -r master --name-only'
