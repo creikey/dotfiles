@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=calendar
+Comment=Simple calendar
+Terminal=false
+Exec=/home/creikey/.scripts/calendar.sh
+Icon=gsimplecal
+Type=Application
