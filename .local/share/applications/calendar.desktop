@@ -2,6 +2,6 @@
 Name=calendar
 Comment=Simple calendar
 Terminal=false
-Exec=/home/creikey/.scripts/calendar.sh
+Exec=/home/creikey/.scripts/calendar
 Icon=gsimplecal
 Type=Application
