@@ -11,6 +11,7 @@ oh-my-zsh-git
 pytg
 python-dictobject
 python-luckydonald-utils
+redshift
 redshift-qt
 telegram-cli-git
 tor-browser-en
