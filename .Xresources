@@ -1,5 +1,6 @@
 xterm*background: black
 xterm*foreground: white
 xterm*faceName: monaco
-xterm*saveLines: 50000
 xterm*faceSize: 11
+xterm*saveLines: 50000
+xterm*selectToClipboard: true
