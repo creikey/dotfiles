@@ -108,5 +108,7 @@ export PATH=$PATH:~/.scripts/
 
 [[ -r "/usr/share/z/z.sh" ]] && source /usr/share/z/z.sh
 
+export EDITOR=nvim
+
 source ~/.aliases
 source ~/.scripts/wifi-passwords
