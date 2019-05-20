@@ -3,6 +3,7 @@ transfer() { if [ $# -eq 0 ]; then echo -e "No arguments specified. Usage:\necho
 tmpfile=$( mktemp -t transferXXX ); if tty -s; then basefile=$(basename "$1" | sed -e 's/[^a-zA-Z0-9._-]/-/g'); curl --progress-bar --upload-file "$1" "https://transfer.sh/$basefile" >> $tmpfile; else curl --progress-bar --upload-file "-" "https://transfer.sh/$1" >> $tmpfile ; fi; cat $tmpfile; cat $tmpfile | xclip -selection c; rm -f $tmpfile; } 
 
 alias clip='xclip -selection c'
+alias e-alias='nvim ~/.aliases'
 alias tmpdir='mktemp -d | clip'
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 alias curconfig='config ls-tree -r master --name-only'
@@ -18,6 +19,10 @@ alias gita='git add -A'
 alias gits='git status'
 alias backup-minecraft='rsync -chavzP -e "ssh -i ~/.ssh/camkeys.pem" ubuntu@creikey.ddns.net:/home/minecraft/world/ ~/.minecraft/saves/server-backup'
 alias -g '***=**/*(.)'
+
+get-ovpn() {
+	scp -i ~/.ssh/camkeys.pem "ubuntu@creikey.ddns.net:/home/ubuntu/$1.ovpn" .
+}
 
 addpath() {
 	export PATH="$PATH:$(readlink -f $1)"
