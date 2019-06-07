@@ -1,0 +1,24 @@
+#!/bin/bash
+
+set -e
+
+#if [[ $EUID -ne 0 ]]; then
+#	echo Must be run as root
+#	exit 1
+#fi
+
+if [ "$1" == "" ]; then
+	echo "Specify windows or linux as first argument"
+	exit 1
+fi
+
+if [ "$1" == "windows" ]; then
+	sudo cp ~/.scripts/grub-windows /etc/default/grub
+elif [ "$1" == "linux" ]; then
+	sudo cp ~/.scripts/grub-linux /etc/default/grub
+else
+	echo "Uknown boot option '$1'"
+	exit 1
+fi
+sudo grub-mkconfig -o /boot/grub/grub.cfg
+sudo sed -i 's/chainloader \/EFI\/Microsoft\/Boot\/bootmgfw\.efi/chainloader \/EFI\/Microsoft\/Boot\/windowsbootmgfw\.efi/' /boot/grub/grub.cfg # windows boot loader fix
