@@ -17,13 +17,48 @@ alias gitpll='git pull'
 alias gitc='git commit'
 alias gita='git add -A'
 alias gits='git status'
+alias ssh-server='ssh -i ~/.ssh/camkeys.pem ubuntu@208.113.133.6'
 alias backup-minecraft='rsync -chavzP -e "ssh -i ~/.ssh/camkeys.pem" ubuntu@creikey.ddns.net:/home/minecraft/world/ ~/.minecraft/saves/server-backup'
+alias pull-users='scp -i ~/.ssh/camkeys.pem ubuntu@208.113.133.6:/home/ubuntu/sheldon-laugh-bot/src/userdata.json ~/userdata.json'
+alias push-users='scp -i ~/.ssh/camkeys.pem ~/userdata.json ubuntu@208.113.133.6:/home/ubuntu/sheldon-laugh-bot/src/userdata.json'
+alias cclean='rm -r *'
 alias -g '***=**/*(.)'
+alias clock-sync='sudo systemctl stop ntpd && sudo ntpdate time1.google.com && sudo systemctl start ntpd'
+alias mmake='make BOARD=NUCLEO_F767ZI '
+alias redeploy-mpy='make BOARD=NUCLEO_F767ZI FROZEN_DIR=scripts clean && ../../tools/make-frozen.py scripts > frozen.c && make BOARD=NUCLEO_F767ZI FROZEN_DIR=scripts -j12 && make BOARD=NUCLEO_F767ZI deploy-stlink'
+alias time-sync='sudo systemctl stop ntpd && sudo ntpdate time1.google.com && sudo systemctl start ntpd'
+alias backup-disk='sudo dd if=/dev/sda of=/dev/sdb status=progress bs=64K'
 
 get-ovpn() {
 	scp -i ~/.ssh/camkeys.pem "ubuntu@creikey.ddns.net:/home/ubuntu/$1.ovpn" .
 }
 
+transfer-groups-file() {
+	scp -i ~/.ssh/camkeys.pem "$1" "ubuntu@208.113.133.6:/home/ubuntu/sheldon-laugh-bot/src/.groups"
+}
+
 addpath() {
 	export PATH="$PATH:$(readlink -f $1)"
 }
+
+g-issue() {
+	GODOT_ISSUE_PATH=~/Documents/other/godot-issue-$1
+	if [[ "$2" == "-c" ]]; then
+		echo -n "$GODOT_ISSUE_PATH" | xclip -selection c
+	else
+		echo "$GODOT_ISSUE_PATH"
+	fi
+}
+
+meson-fileglob() {
+	for f in "${@:1:-1}"; do
+		echo -en \'"$f"\', 
+	done
+	echo -en \'"$@[-1]"\'
+	echo
+}
+
+#export PATH=$PATH:/home/creikey/Documents/projects/godot/bin
+export OSXCROSS_ROOT=/usr/local/osx-ndk-x86
+export PATH=$PATH:/home/creikey/.cargo/bin
+export TERM=xterm

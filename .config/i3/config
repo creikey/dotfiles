@@ -176,6 +176,9 @@ bindsym XF86AudioPrev exec playerctl previous
 # Screenshot
 bindsym $mod+Shift+s exec --no-startup-id maim -s | xclip -selection c -t image/png
 
+# Automatic setget
+bindsym $mod+Mod1+s exec --no-startup-id create-setget
+
 # Make Godot floating
 for_window [instance="Godot_Engine"] floating enable
 

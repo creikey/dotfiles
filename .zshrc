@@ -104,7 +104,7 @@ fi
 source $ZSH/oh-my-zsh.sh
 
 export PATH=$PATH:~/.local/bin
-export PATH=$PATH:~/.scripts/
+#export PATH=$PATH:~/.scripts/
 
 [[ -r "/usr/share/z/z.sh" ]] && source /usr/share/z/z.sh
 
