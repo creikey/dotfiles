@@ -188,5 +188,5 @@ bar {
         status_command i3status
 }
 
-exec picom -b
-exec feh --bg-scale /home/creikey/Pictures/wallpaper.jpg
+exec --no-startup-id picom -b
+exec --no-startup-id [ -e ~/.fehbg ] && ~/.fehbg
