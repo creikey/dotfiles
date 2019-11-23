@@ -189,3 +189,4 @@ bar {
 }
 
 exec picom -b
+exec feh --bg-scale /home/creikey/Pictures/wallpaper.jpg
