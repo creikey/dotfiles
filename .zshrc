@@ -111,3 +111,4 @@ export PATH=$PATH:~/.local/bin
 export EDITOR=nvim
 
 source ~/.aliases
+source ~/.scripts/wifi-passwords
