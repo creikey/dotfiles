@@ -17,6 +17,7 @@ alias gitpll='git pull'
 alias gitc='git commit'
 alias gita='git add -A'
 alias gits='git status'
+alias sync='gitpsh && ./bundle.sh'
 alias ssh-server='ssh -i ~/.ssh/camkeys.pem ubuntu@208.113.133.6'
 alias backup-minecraft='rsync -chavzP -e "ssh -i ~/.ssh/camkeys.pem" ubuntu@creikey.ddns.net:/home/minecraft/world/ ~/.minecraft/saves/server-backup'
 alias pull-users='scp -i ~/.ssh/camkeys.pem ubuntu@208.113.133.6:/home/ubuntu/sheldon-laugh-bot/src/userdata.json ~/userdata.json'
@@ -62,3 +63,4 @@ meson-fileglob() {
 export OSXCROSS_ROOT=/usr/local/osx-ndk-x86
 export PATH=$PATH:/home/creikey/.cargo/bin
 export TERM=xterm
+export GOPATH=/home/creikey/Documents/go
