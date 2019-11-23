@@ -186,5 +186,6 @@ exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 exec --no-startup-id picom -b --config ~/.config/picom/config
 exec --no-startup-id [ -e ~/.fehbg ] && ~/.fehbg
+exec --no-startup-id redshift-gtk
 
 new_window pixel 0
