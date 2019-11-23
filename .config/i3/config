@@ -163,15 +163,21 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+	
 # Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume "$(pactl list short sinks | grep RUNNING | awk '{print $1}' | tr -d '\n')" +2% #increase sound volume
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume "$(pactl list short sinks | grep RUNNING | awk '{print $1}' | tr -d '\n')" -2% #decrease sound volume
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute "$(pactl list short sinks | grep RUNNING | awk '{print $1}' | tr -d '\n')" toggle # mute sound
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
+
 
 bindsym XF86AudioPlay exec playerctl play
 bindsym XF86AudioPause exec playerctl pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
+
+# Sreen brightness controls
+bindsym XF86MonBrightnessUp exec brillo -A 20 -u 300000 # increase screen brightness
+bindsym XF86MonBrightnessDown exec brillo -U 20 -u 300000 # decrease screen brightness
 
 # Screenshot
 bindsym $mod+Shift+s exec --no-startup-id maim -s | xclip -selection c -t image/png

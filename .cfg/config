@@ -15,3 +15,6 @@
 [branch "pc"]
 	remote = origin
 	merge = refs/heads/pc
+[branch "silver-laptop"]
+	remote = origin
+	merge = refs/heads/silver-laptop
