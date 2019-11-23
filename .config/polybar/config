@@ -30,7 +30,7 @@ alert = #bd2c40
 [bar/bar1]
 ;monitor = ${env:MONITOR:HDMI-1}
 width = 100%
-height = 3%
+height = 2%
 ;offset-x = 1%
 ;offset-y = 1%
 radius = 0.0
@@ -43,7 +43,7 @@ line-size = 3
 line-color = #f00
 
 border-size = 0
-border-color = #00000000
+border-color = #222
 
 padding-left = 0
 padding-right = 2
@@ -55,12 +55,68 @@ font-0 = fixed:pixelsize=10;1
 font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
 font-2 = siji:pixelsize=10;1
 
-modules-left = bspwm i3
+modules-left = powermenu
 modules-center = date
-modules-right = filesystem xbacklight alsa pulseaudio xkeyboard memory cpu wlan eth battery temperature date powermenu
+modules-right = xbacklight pulseaudio cpu wlan eth battery temperature date
 
 tray-position = right
 tray-padding = 2
+;tray-background = #0063ff
+
+;wm-restack = bspwm
+;wm-restack = i3
+
+;override-redirect = true
+
+;scroll-up = bspwm-desknext
+;scroll-down = bspwm-deskprev
+
+;scroll-up = i3wm-wsnext
+;scroll-down = i3wm-wsprev
+
+cursor-click = pointer
+cursor-scroll = ns-resize
+
+[bar/bar2]
+width = 15%
+height = 2%
+
+offset-x = 85%
+
+monitor = ${env:MONITOR:}
+
+bottom = true
+override-redirect = true
+
+radius = 0.0
+fixed-center = false
+
+background = #00000000
+foreground = ${colors.foreground}
+
+line-size = 3
+line-color = #f00
+
+border-size = 0
+border-color = #00000000
+
+padding-left = 0
+padding-right = 0
+
+module-margin-left = 0
+module-margin-right = 0
+
+font-0 = fixed:pixelsize=10;1
+font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
+font-2 = siji:pixelsize=10;1
+
+modules-left =
+modules-center = 
+modules-right = i3
+
+tray-position = right
+tray-padding = 2
+
 ;tray-background = #0063ff
 
 ;wm-restack = bspwm
@@ -136,7 +192,7 @@ index-sort = true
 wrapping-scroll = false
 
 ; Only show workspaces on the same output as the bar
-;pin-workspaces = true
+pin-workspaces = true
 
 label-mode-padding = 2
 label-mode-foreground = #000
@@ -275,6 +331,8 @@ label = %date% %time%
 [module/pulseaudio]
 type = internal/pulseaudio
 
+sink = alsa_output.pci-0000_25_00.3.analog-stereo
+
 format-volume = <label-volume> <bar-volume>
 label-volume = VOL %percentage%%
 label-volume-foreground = ${root.foreground}
@@ -386,7 +444,7 @@ expand-right = true
 
 format-spacing = 1
 
-label-open = 
+label-open = O
 label-open-foreground = ${colors.secondary}
 label-close =  cancel
 label-close-foreground = ${colors.secondary}
